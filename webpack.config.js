@@ -54,5 +54,6 @@ module.exports = {
     open: false,
     static: path.resolve(__dirname, "./dist"),
     port: 4000,
+    allowedHosts: ["thomas-dauriac.fr"],
   },
 };
