@@ -89,7 +89,6 @@ const createArticles = () => {
 };
 
 const displayMenuCategories = (categoriesArr) => {
-  debugger;
   const liElements = categoriesArr.map((categoryElem) => {
     const li = document.createElement("li");
     li.innerHTML = `${categoryElem[0]} ( <strong>${categoryElem[1]}</strong> )`;
@@ -126,10 +125,10 @@ const createMenuCategories = () => {
     }
     return acc;
   }, {});
-
   // const categoriesArr = Object.keys(categories).map((category) => {
   //   return [category, categories[category]];
   // });
+
   const categoriesArr = Object.entries(categories).sort((c1, c2) =>
     c1[0].localeCompare(c2[0])
   );
@@ -146,6 +145,9 @@ const fetchArticle = async () => {
     createMenuCategories();
   } catch (error) {
     console.log("error :", error);
+    articles = [articles];
+    createArticles();
+    createMenuCategories();
   }
 };
 
